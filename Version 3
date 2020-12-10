@@ -1,3 +1,4 @@
+import random
 def start():
     #this is the setup for the adventure game. Im lumping all of the speech
     #bubbles together, so the end product isn't too packed.
@@ -39,6 +40,9 @@ def user_choice_wolves_hide():
     print("Congratulations, you have successfully hidden and avoided the wolves!")
     print("You are safe.")
     print("You have gained the achievement: I'm not alone")
+    
+random_chance_bandit_fight = random.randint(1, 4)
+random_chance_bandit_hide = random.randint(1, 2)
 
 #This is the setup for the first choice, the text, and the individual routes
 def user_choice():
@@ -63,5 +67,20 @@ def user_choice():
         if bandit_action == "1":
             print("They chase after you, and after a few minutes on the run they catch up.")
             print("GAME OVER")
+        if bandit_action == "2":
+            if random_chance_bandit_fight == 1:
+                print("You manage to fight the bandits off, and make them flee.")
+                print("You have gained the achievement: Valiant Hero")
+            if random_chance_bandit_fight == 2 or 3 or 4:
+                print("You put up a good fight, but the bandits overwhelm you in sheer numbers, and close in to rob you.")
+                print("GAME OVER")
+        if bandit_action == "3":
+            if random_chance_bandit_hide == 1:
+                print("You successfully hide yourself from the bandits! Well done!")
+                print("You have gained the achievement: Master of Shadows and Wimpiness")
+            elif random_chance_bandit_hide == 2:
+                print("Unfortunately, one of the bandits notices you, and immediately catches you.")
+                print("GAME OVER")
+
 start()
 user_choice()
