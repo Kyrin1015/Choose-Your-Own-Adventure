@@ -1,0 +1,194 @@
+import random
+#All of the definitions are used to write the text.
+def start():
+    #this is the setup for the adventure game. Im lumping all of the speech
+    #bubbles together, so the end product isnt too packed.
+    print(  
+        "You find yourself on a dirt path, surrounded", \
+        "by a deep and dark forest."
+        )
+    print("What will you do?")
+    print(" 1. Enter the forest")
+    print(" 2. Walk down the dirt path")
+    print(" 3. Yell for help")
+    
+def user_choice_wolves():
+    print("As you traverse through the forest, you hear howling in the distance!")
+    print("What will you do?")
+    print(" 1. Run")
+    print(" 2. Hide")
+
+def user_choice_troll():
+    print(
+        "You reach a bridge, but as you attempt to cross it, ", \
+        "a troll blocks your way."
+        )
+    print('"Awnser my riddle, and you may pass."')
+    print("He asks, “ What has to be broken before you can use it?”")
+
+def user_choice_bandit():
+    print("Your loud yells attract the local bandits!")
+    print("What will you do?")
+    print(" 1. Run")
+    print(" 2. Fight")
+    print(" 3. Hide")
+
+def user_choice_wolves_run():
+    print("Your movement has alerted the wolves!")
+    print("GAME OVER")
+
+def user_choice_wolves_hide():
+    print("Congratulations, you have successfully hidden and avoided the wolves!")
+    print("You are safe.")
+    print("You have gained the achievement: Hiding Harry")
+
+"""
+I tried to make a definition for the play repeat function, but i couldn't use continue and break like that, so i just added it into the code just as it is.
+def continue_to_play():
+    print("Play again?")
+    play_again = input("")
+    if play_again == "Yes" or "yes":
+        continue
+    elif play_again == "No" or "no":
+        print("Have a nice day!")
+        break
+    else:
+        print("You have entered an invalid input. Please try again.")
+        continue
+"""
+
+random_chance_bandit_fight = random.randint(1, 4)
+random_chance_bandit_hide = random.randint(1, 2)
+
+#This is to prepare the code for the option to play again
+
+
+#This is the setup for the first choice, the text, and the individual routes
+while True:
+    start()
+    user_choice = input("")
+    if user_choice == "1":
+        #A def for making the code less crowded
+        user_choice_wolves()
+        wolves_choice = input("")
+        if wolves_choice == "1":
+            user_choice_wolves_run()
+            print("Play again?")
+            play_again = input("")
+            if play_again == "Yes" or play_again == "yes":
+                continue
+            elif play_again == "No" or play_again == "no":
+                print("Have a nice day!")
+                break
+            else:
+                print("You have entered an invalid input. Please restart the game.")
+                break
+        elif wolves_choice == "2":
+            user_choice_wolves_hide()
+            print("Play again?")
+            play_again = input("")
+            if play_again == "Yes" or play_again == "yes":
+                continue
+            elif play_again == "No" or play_again == "no":
+                print("Have a nice day!")
+                break
+            else:
+                print("You have entered an invalid input. Please restart the game.")
+                break
+        else:
+            print("You have entered an invalid input.")
+    elif user_choice == "2":
+        #A def for making the code less crowded
+        user_choice_troll()
+        troll_riddle_choice = input("")
+        if troll_riddle_choice == "Egg" or troll_riddle_choice == "egg":
+            #I chose to not create these sentences in definitions because they were only a couple words long.
+            print('"Correct! You may pass", he said')
+            print("You have gained the achievement: Big Brain Time")
+            print("Play again?")
+            play_again = input("")
+            if play_again == "Yes" or play_again == "yes":
+                continue
+            elif play_again == "No" or play_again == "no":
+                print("Have a nice day!")
+                break
+            else:
+                print("You have entered an invalid input. Please restart the game.")
+                break
+        else:
+            print('"You have guessed wrong. Too bad." he sighed."')
+    elif user_choice == "3":
+        #A def for making the code less crowded
+        user_choice_bandit()
+        bandit_action = input("")
+        if bandit_action == "1":
+            print("They chase after you, and after a few minutes on the run they catch up.")
+            print("GAME OVER")
+            print("Play again?")
+            play_again = input("")
+            if play_again == "Yes" or play_again == "yes":
+                continue
+            elif play_again == "No" or play_again == "no":
+                print("Have a nice day!")
+                break
+            else:
+                print("You have entered an invalid input. Please restart the game.")
+                break
+        if bandit_action == "2":
+            if random_chance_bandit_fight == 1:
+                print("You manage to fight the bandits off, and make them flee.")
+                print("You have gained the achievement: Valiant Hero")
+                print("Play again?")
+                play_again = input("")
+                if play_again == "Yes" or play_again == "yes":
+                    continue
+                elif play_again == "No" or play_again == "no":
+                    print("Have a nice day!")
+                    break
+                else:
+                    print("You have entered an invalid input. Please restart the game.")
+                    break
+            if random_chance_bandit_fight == 2 or 3 or 4:
+                print("You put up a good fight, but the bandits overwhelm you in sheer numbers, and ")
+                print("close in to rob you.")
+                print("GAME OVER")
+                print("Play again?")
+                play_again = input("")
+                if play_again == "Yes" or play_again == "yes":
+                    continue
+                elif play_again == "No" or play_again == "no":
+                    print("Have a nice day!")
+                    break
+                else:
+                    print("You have entered an invalid input. Please restart the game.")
+                    break
+        if bandit_action == "3":
+            if random_chance_bandit_hide == 1:
+                print("You successfully hide yourself from the bandits! Well done!")
+                print("You have gained the achievement: Master of Shadows and Wimpiness")
+                print("Play again?")
+                play_again = input("")
+                if play_again == "Yes" or play_again == "yes":
+                    continue
+                elif play_again == "No" or play_again == "no":
+                    print("Have a nice day!")
+                    break
+                else:
+                    print("You have entered an invalid input. Please restart the game.")
+                    break
+            elif random_chance_bandit_hide == 2:
+                print("Unfortunately, one of the bandits notices you, and immediately catches you.")
+                print("GAME OVER")
+                print("Play again?")
+                play_again = input("")
+                if play_again == "Yes" or play_again == "yes":
+                    continue
+                elif play_again == "No" or play_again == "no":
+                    print("Have a nice day!")
+                    break
+                else:
+                    print("You have entered an invalid input. Please restart the game.")
+                    break
+    else:
+        print("You have entered an invalid input. The system has stopped. Please restart the game.")
+        break
