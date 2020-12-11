@@ -1,0 +1,46 @@
+def start():
+    #this is the setup for the adventure game. Im lumping all of the speech
+    #bubbles together, so the end product isn't too packed.
+    print(  
+        "You find yourself on a dirt path, surrounded", \
+        "by a deep and dark forest."
+        )
+    print("What will you do?")
+    print(" 1. Enter the forest")
+    print(" 2. Walk down the dirt path")
+    print(" 3. Yell for help")
+
+def user_choice_one_wolves():
+    print("As you traverse through the forest, you hear howling in the distance!")
+    print("What will you do?")
+    print(" 1. Run")
+    print(" 2. Hide")
+
+def user_choice_one_troll():
+    print(
+        "You reach a bridge, but as you attempt to cross it, ", \
+        "a troll blocks your way."
+        )
+    print('"Awnser my riddle, and you may pass."')
+    print("He asks, “ What has to be broken before you can use it?”")
+
+def user_choice_one_bandit():
+    print("Your loud yells attract the local bandits!")
+    print("What will you do?")
+    print(" 1. Run")
+    print(" 2. Fight")
+    print(" 3. Hide")
+
+#This is the setup for the first choice, the text, and the individual routes
+def user_choice():
+    user_choice = input("")
+    if user_choice == "1":
+        #A def for making the code less crowded
+        user_choice_wolves()
+    elif user_choice == "2":
+        #A def for making the code less crowded
+        user_choice_troll()
+    elif user_choice == "3":
+        #A def for making the code less crowded
+        user_choice_bandit()
+        bandit_action = input("")
